@@ -1,0 +1,122 @@
+﻿<Window x:Class="DocumentBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DocumentBinding"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1150">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1" Grid.Column="0" Height="500" Padding="10" Margin="10">
+            <StackPanel>
+                <TextBox Name="textBoxOrganization" Margin="10"
+                    materialDesign:HintAssist.Hint="Наименование организации"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+                <TextBox Name="textBoxNameDirector" Margin="10"
+                    materialDesign:HintAssist.Hint="ФИО директора"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+                <TextBox Name="textBoxIin" Margin="10"
+                    materialDesign:HintAssist.Hint="ИИН или БИН"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+                <TextBox Name="textBoxAdress" Margin="10"
+                    materialDesign:HintAssist.Hint="Юр. адрес"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+                <TextBox Name="textBoxBank" Margin="10"
+                    materialDesign:HintAssist.Hint="Наименование банка"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+                <TextBox Name="textBoxSchet" Margin="10"
+                    materialDesign:HintAssist.Hint="Расчетный счет"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+                <TextBox Name="textBoxBik" Margin="10"
+                    materialDesign:HintAssist.Hint="БИК банка"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+                
+            </StackPanel>
+        </materialDesign:Card>
+
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1" Grid.Column="1" Height="500" Padding="10" Margin="10">
+            <DocumentViewer x:Name="document">
+                <FixedDocument>
+                    <PageContent Width="400" Height="900">
+                        <FixedPage>
+                            
+                            <Grid>
+                                <StackPanel>
+                                        <TextBlock Text="ДОГОВОР НА ОКАЗАНИЕ УСЛУГ" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                     <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding ElementName=textBoxOrganization, Path=Text}" FontWeight="Bold" ></TextBlock>
+                                            <TextBlock Text=" именуемое в дальнейшем «Заказчик», в лице директора " />
+                                            <TextBlock Text="{Binding ElementName=textBoxNameDirector, Path=Text}" FontWeight="Bold" />
+                                    </StackPanel>
+
+                                    <TextBlock Text="с одной стороны и ИП «Мукушев Азат Серикович», в лице директора Мукушев А.С., именуемый в"/>
+                                    <TextBlock Text="дальнейшем «Исполнитель», действующего на основании государственной регистрации в Налоговом" />
+                                    <TextBlock Text="комитете по Алматинскому району г. Астаны, серия 06915 № 0056829, с другой стороны, далее совместно"/>
+                                    <TextBlock Text="именуемые «Стороны», заключили настоящий Договор на оказание услуг (далее – Договор) и пришли к соглашению о нижеследующем:"/>
+                                    
+                                    <StackPanel>
+                                        <TextBlock Text="1. ПРЕДМЕТ ДОГОВОРА " FontWeight="Bold" HorizontalAlignment="Center"/>
+                                        <TextBlock Text=" 1.1. По настоящему Договору Исполнитель обязуется по заданию Заказчика оказывать услуги, т.е."/>
+                                        <TextBlock Text=" осуществлять максимальное наполнение клиентами зала ресторана, принадлежащего Заказчику (далее - Услуги), "/>
+                                        <TextBlock Text=" а Заказчик обязуется оплатить оказанные Услуги по настоящему Договору в порядке, предусмотренном пунктом 2.1 настоящего Договора."/>
+                                        <TextBlock Text=" 1.2. Исполнитель при осуществлении услуг Заказчику по настоящему Договору и с целью полного."/>
+                                        <TextBlock Text=" удовлетворения запросов Заказчика обязуется предоставлять следующие виды Услуг:"/>
+                                        <TextBlock Text="   Размещение информации о заведении на главной странице веб-сайта;  "/>
+                                        <TextBlock Text="   Размещение информации о заведении в рекламных записях в социальных сетях"/>
+                                        <TextBlock Text="   Размещение информации о заведении на веб-сайтах партнеров; Google, Яндекс и другие."/>
+                                        <TextBlock Text=" 1.3. Место оказания услуг: Услуги оказываются посредством публикации на веб-сайте www.redtable.kz "/>
+                                        <TextBlock Text=" 1.4. Дата и время оказания Услуг до 31 декабря 2019 года. "/>
+                                        <TextBlock Text=" 1.5. Факт оказания Услуг надлежащим образом подтверждается путем подписания уполномоченными "/>
+                                        <TextBlock Text=" представителями Сторон Акта выполненных работ. Акт выполненных работ предоставляется по истечению каждого календарного месяца."/>
+                                        <TextBlock Text=" Акт выполненных работ подписывается в течение 24 часов с момента предоставления его Исполнителем Заказчику."/>
+                                        <TextBlock Text="2. АДРЕСА, РЕКВИЗИТЫ СТОРОН " FontWeight="Bold" HorizontalAlignment="Center" />
+                                     </StackPanel>
+                                    
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="{Binding ElementName=textBoxOrganization, Path=Text}" />
+                                                <TextBlock Text="{Binding ElementName=textBoxAdress, Path=Text}" />
+                                                <TextBlock Text="{Binding ElementName=textBoxIin, Path=Text}" />
+                                                <TextBlock Text="{Binding ElementName=textBoxSchet, Path=Text}" />
+                                                <TextBlock Text="{Binding ElementName=textBoxBank, Path=Text}" />
+                                                <TextBlock Text="{Binding ElementName=textBoxBik, Path=Text}" />
+                                                <TextBlock Text="{Binding ElementName=textBoxNameDirector, Path=Text}" />
+                                            </StackPanel>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="ИП Мукушев Азат Серикович" />
+                                            <TextBlock Text="Республика Казахстан г. Астана ул. Ертіс, 32" />
+                                            <TextBlock Text="91121635370"/>
+                                            <TextBlock Text="KZ7396503F0007576608" />
+                                            <TextBlock Text="АО «ForteBank»" />
+                                            <TextBlock Text="IRTYKZKA" />
+                                            <TextBlock Text="Мукушев А.С." />
+                                        </StackPanel>
+                                    </Grid> 
+                            </StackPanel>
+                            </Grid>
+                        </FixedPage>
+                    </PageContent>
+                </FixedDocument>
+            </DocumentViewer>
+        </materialDesign:Card>
+    </Grid>
+</Window>
